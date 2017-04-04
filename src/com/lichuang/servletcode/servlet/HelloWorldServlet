@@ -40,4 +40,5 @@ public class HelloWorldServlet extends HttpServlet {
 	public void destroy() {
 		System.out.println("destroy()开始执行。。。。。。");
 	}
+	
 }
