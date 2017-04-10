@@ -34,7 +34,6 @@ public class HelloWorldServlet extends HttpServlet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public void destroy() {
