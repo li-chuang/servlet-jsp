@@ -40,7 +40,8 @@ public class HelloForm2 extends HttpServlet {
 				"ISO8859-1"), "UTF-8");
 		String password = request.getParameter("password");
 		String worktype = new String(request.getParameter("people").getBytes("ISO8859-1"),"UTF-8");
-
+		String quater = new String(request.getParameter("quater").getBytes("ISO8859-1"),"UTF-8");
+		
 		out.println("<!DOCTYPE html> \n" 
 				+ "<html> \n" 
 				+ "<head><title>"+ title + "</title></head>" 
@@ -50,6 +51,7 @@ public class HelloForm2 extends HttpServlet {
 				+ "  <li><b>用户名</b>：" + username + "\n" 
 				+ "  <li><b>密码</b>：" + password + "\n" 
 				+ "  <li><b>人员类型</b>：" + worktype + "\n" 
+				+ "  <li><b>所在季度</b>：" + quater + "\n" 
 				+ "</ul>\n" 
 				+ "</body></html>");
 	}
