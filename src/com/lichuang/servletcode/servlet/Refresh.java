@@ -31,7 +31,7 @@ public class Refresh extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 设置刷新自动加载时间为5秒
-		response.setIntHeader("Refresh", 5);
+		response.setIntHeader("Refresh", 5);// 设置一个带有给定的名称和整数值的响应报头。
 		// 设置响应内容类型
 		response.setContentType("text/html;charset=UTF-8");
 		
