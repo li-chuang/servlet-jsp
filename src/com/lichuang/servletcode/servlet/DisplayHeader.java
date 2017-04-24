@@ -44,11 +44,11 @@ public class DisplayHeader extends HttpServlet {
 				"<th>Header 名称</th><th>Header 值</th>\n"+
 				"</tr>\n");
 				
-		Enumeration<String> headNames = request.getHeaderNames();
+		Enumeration<String> headNames = request.getHeaderNames();// 返回一个枚举，包含在该请求中包含的所有的头名
 		while(headNames.hasMoreElements()){
 			String paramName = headNames.nextElement();
 			out.print("<tr><td>" + paramName + "</td>\n");
-			String paramValue = request.getHeader(paramName);
+			String paramValue = request.getHeader(paramName);// 以字符串形式返回指定的请求头的值
 			out.println("<td> " + paramValue + "</td></tr>\n");		
 		}
 		out.println("</table>\n</body></html>");
