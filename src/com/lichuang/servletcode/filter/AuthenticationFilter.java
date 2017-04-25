@@ -22,8 +22,24 @@ import javax.servlet.annotation.WebFilter;
  * asyncSupported 	boolean 		声明过滤器是否支持异步操作模式，等价于 <async-supported> 标签。
  * description 		String 			该过滤器的描述信息，等价于 <description> 标签。
  * displayName 		String 			该过滤器的显示名，通常配合工具使用，等价于 <display-name> 标签。
+ * 
+ * 以上参数没有控制filter执行顺寻的，通过实践发现，可以通过修改filter的文件名来控制
+ * 因为filter按照a-z的顺序执行，升序排列
  */
-@WebFilter("/*")
+//@WebFilter("/*")  // 这是最简单的WebFilter设置，在WebFilter中，只有urlPatterns是必须的，所以只有一个参数的时候那就是指的url
+//@WebFilter({"/one","/two"})  // urlPatterns与value都是String[]格式，可以映射多个路径
+//@WebFilter(servletNames = "MyFourServlet")  //指定过滤器将应用于哪些 Servlet
+//@WebFilter(servletNames = {"MyFourServlet", "MyFiveServlet"})  // servletNames是字符数组类型的，用花括号表示
+@WebFilter(
+	    urlPatterns = "/five",
+	    filterName = "FiveFilter",
+	    initParams = {
+	        @WebInitParam(name = "name", value = "username"),
+	        @WebInitParam(name = "value", value = "password")
+	    },
+	    description = "MyFiveFilter",
+	    dispatcherTypes = {DispatcherType.REQUEST, DispatcherType.FORWARD}
+	)
 public class AuthenticationFilter implements Filter {
 
     /**
