@@ -37,11 +37,11 @@ import javax.servlet.annotation.WebInitParam;
 	    urlPatterns = "/five",
 	    filterName = "FiveFilter",
 	    initParams = {
-	        @WebInitParam(name = "name", value = "username"),
-	        @WebInitParam(name = "value", value = "password")
+	        @WebInitParam(name = "username", value = "li_ch"),
+	        @WebInitParam(name = "password", value = "sky123")
 	    },
 	    description = "MyFiveFilter",
-	    dispatcherTypes = {DispatcherType.REQUEST, DispatcherType.FORWARD}
+	    dispatcherTypes = {DispatcherType.REQUEST, DispatcherType.FORWARD}//指定 Filter 对资源的多种调用方式进行拦截
 	)
 public class AuthenticationFilter implements Filter {
 
@@ -75,8 +75,11 @@ public class AuthenticationFilter implements Filter {
 	 */
 	public void init(FilterConfig config) throws ServletException {
 		// 获取初始化参数
-		String site = config.getInitParameter("Site"); 
+		String username = config.getInitParameter("username"); 
+		String password = config.getInitParameter("password"); 
 		// 输出初始化参数
-		System.out.println("网站名称: " + site); 
+		System.out.println("用户名称: " + username); 
+		System.out.println("用户密码: " + password); 
 	}
+
 }
