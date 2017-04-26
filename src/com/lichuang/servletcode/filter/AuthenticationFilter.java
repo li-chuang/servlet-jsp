@@ -34,15 +34,17 @@ import javax.servlet.annotation.WebInitParam;
 //@WebFilter(servletNames = "MyFourServlet")  //指定过滤器将应用于哪些 Servlet
 //@WebFilter(servletNames = {"MyFourServlet", "MyFiveServlet"})  // servletNames是字符数组类型的，用花括号表示
 @WebFilter(
-	    urlPatterns = "/five",
+	    urlPatterns = "/*",
 	    filterName = "FiveFilter",
+	    servletNames = "HelloForm2",
 	    initParams = {
 	        @WebInitParam(name = "username", value = "li_ch"),
 	        @WebInitParam(name = "password", value = "sky123")
 	    },
-	    description = "MyFiveFilter",
+	    description = "HelloForm2",
 	    dispatcherTypes = {DispatcherType.REQUEST, DispatcherType.FORWARD}//指定 Filter 对资源的多种调用方式进行拦截
 	)
+//身份验证过滤器
 public class AuthenticationFilter implements Filter {
 
     /**
