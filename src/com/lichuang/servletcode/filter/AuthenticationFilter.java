@@ -79,5 +79,4 @@ public class AuthenticationFilter implements Filter {
 		// 输出初始化参数
 		System.out.println("网站名称: " + site); 
 	}
-
 }
