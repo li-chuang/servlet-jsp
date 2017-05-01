@@ -35,6 +35,7 @@ public class HelloWorldServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+	
 
 	public void destroy() {
 		System.out.println("destroy()开始执行。。。。。。");
