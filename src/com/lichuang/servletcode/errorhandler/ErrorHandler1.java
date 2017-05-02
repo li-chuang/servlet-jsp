@@ -30,16 +30,22 @@ public class ErrorHandler1 extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		Throwable throwable = (Throwable) request
-				.getAttribute("javax.servlet.error.exception");
+				.getAttribute("javax.servlet.error.exception");//异常产生的信息
 		Integer statusCode = (Integer) request
-				.getAttribute("javax.servlet.error.status_code");
+				.getAttribute("javax.servlet.error.status_code");//获取状态码
 		String servletName = (String) request
-				.getAttribute("javax.servlet.error.servlet_name");
+				.getAttribute("javax.servlet.error.servlet_name");// Servlet 的名称
+		Object exceptionType =  request
+				.getAttribute("javax.servlet.error.exception_type");// 给出异常类型的信息
+		String message = (String) request
+				.getAttribute("javax.servlet.error.message");// 给出确切错误消息的信息
+//		String requestUri = (String) request
+//				.getAttribute("javax.servlet.error.request_uri");// 给出有关 URL 调用 Servlet 的信息
 		if (servletName == null) {
 			servletName = "Unknown";
 		}
 		String requestUri = (String) request
-				.getAttribute("javax.servlet.error.request_uri");
+				.getAttribute("javax.servlet.error.request_uri");// 给出有关 URL 调用 Servlet 的信息
 		if (requestUri == null) {
 			requestUri = "Unknown";
 		}
