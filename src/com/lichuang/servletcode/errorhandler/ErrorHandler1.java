@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.xml.internal.ws.api.model.ExceptionType;
+
 /**
  * Servlet implementation class ErrorHandler1
  */
@@ -65,7 +67,8 @@ public class ErrorHandler1 extends HttpServlet {
 					+ response.encodeURL("http://localhost:8080/")
 					+ "\">主页</a>。");
 		} else if (statusCode != null) {
-			out.println("错误代码 : " + statusCode);
+			out.println("错误代码 : " + statusCode + "</br>");
+			out.println("错误信息 : " + message);
 		} else {
 			out.println("<h2>错误信息</h2>");
 			out.println("Servlet Name : " + servletName + "</br></br>");
@@ -73,11 +76,11 @@ public class ErrorHandler1 extends HttpServlet {
 					+ "</br></br>");
 			out.println("请求 URI: " + requestUri + "<br><br>");
 			out.println("异常信息: " + throwable.getMessage());
+			out.println("异常类型 ： " +exceptionType);
 		}
 		out.println("</body>");
 		out.println("</html>");
 	}
-
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
