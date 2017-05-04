@@ -90,5 +90,4 @@ public class ErrorHandler1 extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }
