@@ -91,5 +91,4 @@ public class ErrorHandler1 extends HttpServlet {
 		doGet(request, response);
 	}	
 	
-	
 }
